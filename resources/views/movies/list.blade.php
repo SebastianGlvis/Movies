@@ -5,6 +5,7 @@
             <article class="col-md-12">
                 <form action="{{route('movie/show')}}" method="post" novalidate class="form-inline">
                 @csrf
+                
                     <div class="form-group">
                         <label>Nombre</label>
                         <input type="text" name="name" class="form-control" name="name">
@@ -33,9 +34,19 @@
                             <td>{{$movie->name}}</td> 
                             <td>{{$movie->description}}</td>
                             <td>
-                                <a class="btn btn-primary btn-xs" href="{{router('movie.edit', ['id' => $movie->id]) }}">Editar</a>
-                                <a class="btn btn-danger btn-xs" href="{{router('movie/destroy', ['id' => $movie->id]) }}">Eliminar</a>
+                             
+                            <form action="{{ route('movie.destroy',$movie->id) }}" method="POST">
+   
+                                   
+                                    <a class="btn btn-primary" href="{{ route('movie.edit',$movie->id) }}">Editar</a>
+
+                                    @csrf
+                                    @method('DELETE')
+
+                                    <button type="submit" class="btn btn-danger">Eliminar</button>
+                                    </form>
                                 
+                            
                             </td>
                         </tr>  
                         @endforeach

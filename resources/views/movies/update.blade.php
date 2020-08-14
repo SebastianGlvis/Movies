@@ -16,7 +16,7 @@
                     </div>
 
                     <div class="form-group">
-                        <button type="submit" class="btn btn-succes">Enviar</button>
+                        <button type="submit" class="btn btn-succes">actualizar</button>
                     </div>
                 </form>
             </article>

@@ -20,10 +20,9 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('movies/list', 'HomeController@index');
 Route::resource('/movie', 'MovieController');
-Route::get('movie/destroy/{id}', ['as' => 'movie/destroy', 'uses' => 'MovieControlller@destroy']);
+Route::get('movies/destroy/{id}', ['as' => 'movie/destroy', 'uses' => 'MovieControlller@destroy']);
 Route::post('movie/show', ['as' => 'movie/show', 'uses' => 'MovieController@show']);
-Route::post('movie/update/{id}', ['as' => 'movie/update', 'uses' => 'MovieController@update']);
-
+Route::POST('movie/update',  ['as' => 'movie/update', 'uses' => 'MovieController@edit']);
 
