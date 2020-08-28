@@ -26,3 +26,4 @@ Route::get('movies/destroy/{id}', ['as' => 'movie/destroy', 'uses' => 'MovieCont
 Route::post('movie/show', ['as' => 'movie/show', 'uses' => 'MovieController@show']);
 Route::POST('movie/update',  ['as' => 'movie/update', 'uses' => 'MovieController@edit']);
 
+Route::resource('/role', 'RoleController')->names('role');
